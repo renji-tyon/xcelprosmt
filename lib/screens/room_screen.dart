@@ -152,7 +152,14 @@ class _RoomScreenState extends State<RoomScreen>
                         width: 400,
                         left: 30,
                         top: 190,
-                        child: LightCategory(),
+                        child: SlideTransition(
+                          position: offsetTween(
+                            controller: _controller,
+                            begin: Offset(1, 0.0),
+                            end: Offset.zero,
+                          ),
+                          child: LightCategory(),
+                        ),
                       ),
                     ],
                   ),
