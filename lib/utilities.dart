@@ -35,7 +35,18 @@ class MyTextStyles {
   );
 }
 //animations
-
+Widget flightShuttleBuilder(
+  BuildContext flightContext,
+  Animation<double> animation,
+  HeroFlightDirection flightDirection,
+  BuildContext fromHeroContext,
+  BuildContext toHeroContext,
+) {
+  return DefaultTextStyle(
+    style: DefaultTextStyle.of(toHeroContext).style,
+    child: toHeroContext.widget,
+  );
+}
 offsetTween({
   @required AnimationController controller,
   @required Offset begin,

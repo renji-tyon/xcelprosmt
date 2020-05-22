@@ -19,7 +19,7 @@ class RoomScreen extends StatefulWidget {
 class _RoomScreenState extends State<RoomScreen>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  Animation<Positioned> _positionAnm;
+
 
   final List<Color> _colors = [
     MyColors.lightColorRed,
@@ -38,6 +38,11 @@ class _RoomScreenState extends State<RoomScreen>
   var _selectedColor;
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+  @override
   void initState() {
     _controller = AnimationController(
       vsync: this,
@@ -50,6 +55,8 @@ class _RoomScreenState extends State<RoomScreen>
     _selectedColor = _colors[0];
     super.initState();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
