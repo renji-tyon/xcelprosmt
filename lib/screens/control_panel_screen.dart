@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 import '../widgets/room_grid.dart';
+import '../utilities.dart';
 
 class ControlPanelScreen extends StatelessWidget {
   @override
@@ -62,34 +63,40 @@ class ControlPanelScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.97),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(35),
-                        topRight: Radius.circular(35),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(25, 20, 0, 0),
-                          child: Text('All Rooms',
-                              style: TextStyle(
-                                color: Colors.blue.shade900,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              )),
+                  child: Hero(
+                    tag: 'containerTrf',
+                    flightShuttleBuilder: flightShuttleBuilder,
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.97),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(35),
+                          topRight: Radius.circular(35),
                         ),
-                        SizedBox(height: 10,),
-                        Expanded(
-                            child: Container(
-                          width: double.infinity,
-                          child: RoomGrid(),
-                        ))
-                      ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(25, 20, 0, 0),
+                            child: Text('All Rooms',
+                                style: TextStyle(
+                                  color: Colors.blue.shade900,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                )),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Expanded(
+                              child: Container(
+                            width: double.infinity,
+                            child: RoomGrid(),
+                          ))
+                        ],
+                      ),
                     ),
                   ),
                 )

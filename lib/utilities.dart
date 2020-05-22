@@ -34,3 +34,34 @@ class MyTextStyles {
     fontSize: 18,
   );
 }
+//animations
+Widget flightShuttleBuilder(
+  BuildContext flightContext,
+  Animation<double> animation,
+  HeroFlightDirection flightDirection,
+  BuildContext fromHeroContext,
+  BuildContext toHeroContext,
+) {
+  return DefaultTextStyle(
+    style: DefaultTextStyle.of(toHeroContext).style,
+    child: toHeroContext.widget,
+  );
+}
+
+offsetTween({
+  @required AnimationController controller,
+  @required Offset begin,
+  @required Offset end,
+}) =>
+    Tween<Offset>(begin: begin, end: end).animate(
+      CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: controller),
+    );
+
+opacityTween({
+  @required AnimationController controller,
+  @required double begin,
+  @required double end,
+}) =>
+    Tween<double>(begin: begin, end: end).animate(
+      CurvedAnimation(parent: controller, curve: Curves.fastLinearToSlowEaseIn),
+    );

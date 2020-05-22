@@ -8,10 +8,10 @@ class GridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final roomItem = Provider.of<RoomData>(context);
-    return InkWell(
+    return GestureDetector(
       onTap: () => Navigator.of(context).pushNamed(RoomScreen.routeName,
       arguments: ScreenArgs(roomItem.roomName, roomItem.lightCount)),
-      splashColor: Colors.blue,
+      // splashColor: Colors.blue,
       child: Card(
         elevation: 1,
         shape:
